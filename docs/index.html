@@ -25,14 +25,37 @@ iframe {
     r.style.opacity = 1
   };
 
+  papers = {
+    'nyt': function (e, n, a) {
+        var o = `https://static01.nyt.com/images/${e}/${n}/${a}/nytfrontpage/scannat`;
+        return {
+          'pdf': o + '.pdf',
+          'jpg': o + '.jpg'
+        }
+      },
+
+    'wapo': function (e, n, a) {
+        var d = `${e}${n}${a}`;
+        var o = `https://www.washingtonpost.com/wp-stat/tablet/v1.1/${d}/A01_SU_EZ_DAILY_${d}.pdf`;
+        return {
+          'pdf': o,
+          'jpg': o + '_300.jpg'
+        }
+      }
+    }
+
   function load() {
     var t=new Date,
     e = t.getYear()+1900,
     n = (t.getMonth()+1+100).toString().substring(1),
     a = (t.getDate()+100).toString().substring(1);
-    var o = "https://static01.nyt.com/images/"+e+"/"+n+"/"+a+"/nytfrontpage/scannat";
-    r.src = o + ".pdf#view=fitH&scrollbar=0&toolbar=0&navpanes=0";
-    document.body.style.backgroundImage = "url("+o+".jpg)";
+
+    var paper = document.location.search.substring(1);
+    if (!(paper in papers)) paper = 'nyt';
+
+    news = papers[paper](e, n, a);
+    r.src = news.pdf + "#view=fitH&scrollbar=0&toolbar=0&navpanes=0";
+    document.body.style.backgroundImage = "url(" + r.jpg + ")";
   }
   setInterval(load, 60 * 60 * 1000);
   load();
