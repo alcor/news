@@ -1,0 +1,41 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  margin:0;
+  background-repeat:no-repeat;
+  background-size:auto;
+  background-position:50%;
+}
+iframe {
+  border:none;
+  position:absolute;
+  left:-1%; top:-1%; right:-1%;  
+  width:102%;
+  height:102%;
+  opacity:0;
+}
+</style>
+<body>
+</body>
+<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+<script>
+  var r = document.createElement("embed");
+  r.width="800px";r.height="2100px";
+  document.body.appendChild(r);
+  r.onload = function(){
+    r.style.opacity = 1
+  };
+
+  function load() {
+    var t=new Date,
+    e = t.getYear()+1900,
+    n = (t.getMonth()+1+100).toString().substring(1),
+    a = (t.getDate()+100).toString().substring(1);
+    var id = "NY_NYT";
+    var o = "https://static01.nyt.com/images/"+e+"/"+n+"/"+a+"/nytfrontpage/scannat";
+    r.src = o + ".pdf#view=fitH&scrollbar=0&toolbar=0&navpanes=0";
+    document.body.style.backgroundImage = "url("+o+".jpg)";
+  }
+  setInterval(load, 60 * 60 * 1000);
+  load();
+</script>
