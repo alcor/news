@@ -1,0 +1,23 @@
+var papers = ["DC_WP",   // Washington Post 
+"MA_BG",  // Boston Globe
+"NY_NYT",  // New York Times
+"CA_LAT",  // L.A. Times
+"CAN_TS",   // Toronto Star
+"CA_SFC"]   // San Fran Chronicle
+
+var id = "NY_NYT";
+//var u = "https://cdn.freedomforum.org/dfp/pdf" + n + "/" + id;
+
+r.src = o + ".pdf#view=fitH&scrollbar=0&toolbar=0&navpanes=0";
+
+https://cdn.freedomforum.org/dfp/jpg18/lg/NY_NYT.jpg
+https://cdn.freedomforum.org/dfp/pdf18/NY_NYT.pdf
+
+<embed
+src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://cdn.freedomforum.org/dfp/pdf17/NY_NYT.pdf#toolbar=0&scrollbar=0"
+type="application/pdf"
+frameBorder="0"
+scrolling="auto"
+height="100%"
+width="100%"
+></embed>
